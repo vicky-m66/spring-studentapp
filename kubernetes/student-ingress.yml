@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: student-ingress
+spec:
+  rules:
+  - host: "student.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: students-app
+            port:
+              number: 8080              	  		
